@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "770599955242",
+    "project_id": "chef-intelligence-app",
+    "storage_bucket": "chef-intelligence-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770599955242:android:258bdcd3a431906dfa4c53",
+        "android_client_info": {
+          "package_name": "com.example.i_chef_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDl17Jww1rhoPwwanvj8gmqIl90dahiXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

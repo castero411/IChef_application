@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_chef_application/constants/colors.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class IntroductionPage extends StatelessWidget {
@@ -42,13 +43,13 @@ class IntroductionPage extends StatelessWidget {
       skip: const Text("Skip"),
       next: const Icon(Icons.arrow_forward),
       done: const Text("Done", style: TextStyle(fontWeight: FontWeight.w600)),
-      dotsDecorator: const DotsDecorator(
-        size: Size(10.0, 10.0),
-        activeSize: Size(22.0, 10.0),
-        activeColor: Colors.deepOrange,
+      dotsDecorator: DotsDecorator(
+        size: const Size(10.0, 10.0),
+        activeSize: const Size(22.0, 10.0),
+        activeColor: mainColor,
         color: Colors.black26,
-        spacing: EdgeInsets.symmetric(horizontal: 3.0),
-        activeShape: RoundedRectangleBorder(
+        spacing: const EdgeInsets.symmetric(horizontal: 3.0),
+        activeShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
       ),

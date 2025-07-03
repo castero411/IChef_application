@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:i_chef_application/constants/colors.dart';
+import 'package:i_chef_application/provider/user_data_provider.dart';
 import 'package:i_chef_application/view/commonWidgets/home_item_widget.dart';
 import 'package:i_chef_application/view/commonWidgets/ingredient_widget.dart';
-import 'package:i_chef_application/view/pages/main_page/main_page.dart';
 import 'package:i_chef_application/view/text_styles.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    String username = ref.watch(userDataProvider).name;
+
     String itemName = 'Spaghetti';
     ImageProvider itemImage = AssetImage("assets/bread.jpg");
     ImageProvider itemImage2 = AssetImage("assets/food.png");
@@ -46,10 +49,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Welcome back 👋', style: grey10),
-                Text(
-                  "Chef Alex",
-                  style: secondarytitle25.copyWith(fontSize: 24),
-                ),
+                Text(username, style: secondarytitle25.copyWith(fontSize: 24)),
                 // TODO: Replace with actual user name
               ],
             ),

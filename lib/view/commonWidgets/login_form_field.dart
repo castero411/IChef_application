@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:i_chef_application/constants/colors.dart';
 
-class LoginFormField extends StatefulWidget {
-  const LoginFormField({
+class LoginFormField extends ConsumerWidget {
+  LoginFormField({
     super.key,
     this.height = 70,
     this.width = double.infinity,
     this.isObscured = false,
     required this.label,
     required this.icon,
+    required this.validator,
+    required this.controller,
   });
 
   final double height;
@@ -17,25 +19,18 @@ class LoginFormField extends StatefulWidget {
   final String label;
   final IconData icon;
   final bool isObscured;
+  final FormFieldValidator<String?> validator;
+  final TextEditingController controller;
+
+  static final obscureProvider = StateProvider<bool>((ref) => true);
 
   @override
-  State<LoginFormField> createState() => _LoginFormFieldState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    bool obscureText = isObscured && ref.watch(obscureProvider);
 
-class _LoginFormFieldState extends State<LoginFormField> {
-  late bool _obscureText;
-
-  @override
-  void initState() {
-    _obscureText = widget.isObscured;
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Container(
-      height: widget.height,
-      width: widget.width,
+      height: height,
+      width: width,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -51,23 +46,27 @@ class _LoginFormFieldState extends State<LoginFormField> {
       ),
       child: Center(
         child: TextFormField(
-          obscureText: _obscureText,
+          validator: validator,
+          controller: controller,
+          obscureText: obscureText,
           decoration: InputDecoration(
-            prefixIcon: Icon(widget.icon, color: Colors.grey[700]),
-            labelText: widget.label,
+            prefixIcon: Icon(icon, color: Colors.grey[700]),
+            //labelText: label,
+            hint: Text(
+              label,
+              style: TextStyle(color: Colors.black.withAlpha(100)),
+            ),
             labelStyle: const TextStyle(color: Colors.grey),
             border: InputBorder.none,
             suffixIcon:
-                widget.isObscured
+                isObscured
                     ? IconButton(
                       icon: Icon(
-                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                        obscureText ? Icons.visibility_off : Icons.visibility,
                         color: Colors.grey[600],
                       ),
                       onPressed: () {
-                        setState(() {
-                          _obscureText = !_obscureText;
-                        });
+                        ref.read(obscureProvider.notifier).state = !obscureText;
                       },
                     )
                     : null,

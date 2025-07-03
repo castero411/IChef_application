@@ -129,8 +129,34 @@ class _RecipePageState extends State<RecipePage> {
                     text: '3/2 cup of refined wheat',
                     color: Colors.red,
                   ),
-                  const IngredientItem(text: '1 Mashed Potato'),
-                  const IngredientItem(text: '2 Pan bread'),
+                  const IngredientItem(
+                    text: '1 Mashed Potato',
+                    color: Colors.red,
+                  ),
+                  const IngredientItem(text: '2 Pan bread', color: Colors.red),
+
+                  const Gap(16),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Steps',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  const Divider(),
+                  const IngredientItem(
+                    text: '1 cup of refined wheat',
+                    color: Colors.red,
+                  ),
+                  const IngredientItem(
+                    text: '2 Mashed Potato',
+                    color: Colors.red,
+                  ),
+                  const IngredientItem(text: '3 Pan bread', color: Colors.red),
                 ],
               ),
             ),

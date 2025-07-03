@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:i_chef_application/constants/colors.dart'; // if using for consistent theming
 
 class IngredientWidget extends StatelessWidget {
   const IngredientWidget({

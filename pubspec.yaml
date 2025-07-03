@@ -22,6 +22,10 @@ dependencies:
   introduction_screen: ^3.1.17
   flutter_neat_and_clean_calendar: ^0.4.16
   intl: ^0.20.2
+  flutter_riverpod: ^2.6.1
+  firebase_core: ^3.14.0
+  firebase_auth: ^5.6.0
+  cloud_firestore: ^5.6.9
 
 dev_dependencies:
   flutter_test:
