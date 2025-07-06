@@ -4,13 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:i_chef_application/constants/colors.dart';
-import 'package:i_chef_application/model/saved_meal.dart';
 import 'package:i_chef_application/routes.dart';
-import 'package:i_chef_application/view/pages/diet_plan_page/diet_plan_page.dart';
 import 'package:i_chef_application/view/pages/introduction_page/introduction_page.dart';
 import 'package:i_chef_application/view/pages/main_page/main_page.dart';
 import 'package:i_chef_application/view/pages/search_result_page/search_result_page.dart';
-import 'package:i_chef_application/view/pages/setup_account_page.dart/setup_account_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
