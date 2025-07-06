@@ -12,6 +12,7 @@ import 'package:i_chef_application/view/commonWidgets/ingredient_container.dart'
 import 'package:i_chef_application/view/commonWidgets/ingredient_item.dart';
 import 'package:i_chef_application/view/commonWidgets/x_icon_button.dart';
 import 'package:i_chef_application/view/pages/cooking_meal_page/cooking_meal_page.dart';
+import 'package:i_chef_application/view/pages/plan_meal_page/plan_meal_page.dart';
 
 class RecipePage extends ConsumerStatefulWidget {
   const RecipePage({super.key, required this.recipeTitle});
@@ -101,7 +102,14 @@ class _RecipePageState extends ConsumerState<RecipePage> {
                         minutes: '30', // static placeholder
                         recipeName: recipe.title,
                         onPlanMealPressed:
-                            () => Navigator.pushNamed(context, 'plan_meal'),
+                            () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) =>
+                                        PlanMealPage(mealName: mealName),
+                              ),
+                            ),
                       ),
                       const Gap(16),
 
