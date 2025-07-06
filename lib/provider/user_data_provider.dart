@@ -11,14 +11,39 @@ class UserDataNotifier extends StateNotifier<UserData> {
           name: '',
           email: '',
           username: '',
-          country: '',
-          diet: [],
+          cuisine: '',
           allergies: [],
           intolerances: [],
           age: 0,
           gender: '',
         ),
       );
+  void removeAllergy(String allergy) {
+    state = state.copyWith(
+      allergies: state.allergies.where((a) => a != allergy).toList(),
+    );
+  }
+
+  void addAllergy(String allergy) {
+    // avoid duplicates
+    if (state.allergies.contains(allergy)) return;
+
+    final updated = [...state.allergies, allergy];
+    state = state.copyWith(allergies: updated);
+  }
+
+  // Intolerances
+  void addIntolerance(String value) {
+    if (!state.intolerances.contains(value)) {
+      state = state.copyWith(intolerances: [...state.intolerances, value]);
+    }
+  }
+
+  void removeIntolerance(String value) {
+    state = state.copyWith(
+      intolerances: state.intolerances.where((v) => v != value).toList(),
+    );
+  }
 
   // --- SETTERS ---
   void setName(String name) => state = state.copyWith(name: name);
@@ -26,7 +51,6 @@ class UserDataNotifier extends StateNotifier<UserData> {
   void setUsername(String username) =>
       state = state.copyWith(username: username);
   void setCountry(String country) => state = state.copyWith(country: country);
-  void setDiet(List<String> diet) => state = state.copyWith(diet: diet);
   void setAllergies(List<String> allergies) =>
       state = state.copyWith(allergies: allergies);
   void setIntolerances(List<String> intolerances) =>

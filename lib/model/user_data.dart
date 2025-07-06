@@ -2,8 +2,7 @@ class UserData {
   String name;
   String email;
   String username;
-  String country;
-  List<String> diet;
+  String cuisine;
   List<String> allergies;
   List<String> intolerances;
   int age;
@@ -13,8 +12,7 @@ class UserData {
     required this.name,
     required this.email,
     required this.username,
-    required this.country,
-    required this.diet,
+    required this.cuisine,
     required this.allergies,
     required this.intolerances,
     required this.age,
@@ -25,8 +23,7 @@ class UserData {
     name: map['name'] ?? '',
     email: map['email'] ?? '',
     username: map['username'] ?? '',
-    country: map['country'] ?? '',
-    diet: List<String>.from(map['diet'] ?? []),
+    cuisine: map['country'] ?? '',
     allergies: List<String>.from(map['allergies'] ?? []),
     intolerances: List<String>.from(map['intolerances'] ?? []),
     age: map['age'] ?? 0,
@@ -37,8 +34,7 @@ class UserData {
     'name': name,
     'email': email,
     'username': username,
-    'country': country,
-    'diet': diet,
+    'cuisine': cuisine,
     'allergies': allergies,
     'intolerances': intolerances,
     'age': age,
@@ -60,8 +56,7 @@ class UserData {
       name: name ?? this.name,
       email: email ?? this.email,
       username: username ?? this.username,
-      country: country ?? this.country,
-      diet: diet ?? this.diet,
+      cuisine: country ?? this.cuisine,
       allergies: allergies ?? this.allergies,
       intolerances: intolerances ?? this.intolerances,
       age: age ?? this.age,

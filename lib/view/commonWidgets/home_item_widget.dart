@@ -8,12 +8,16 @@ class HomeItemWidget extends StatelessWidget {
     required this.itemName,
     required this.time,
     required this.onTap,
+    required this.onFavourite,
+    required this.isFavourite,
   });
 
   final ImageProvider<Object> image;
   final String itemName;
   final String time;
   final Function() onTap;
+  final Function() onFavourite;
+  final bool isFavourite;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +75,7 @@ class HomeItemWidget extends StatelessWidget {
                           Row(
                             children: [
                               const Icon(
-                                Icons.schedule,
+                                Icons.fastfood,
                                 size: 14,
                                 color: Colors.grey,
                               ),
@@ -90,10 +94,11 @@ class HomeItemWidget extends StatelessWidget {
                     ),
                     const Gap(8),
                     IconButton(
-                      onPressed: () {}, // TODO: Customize this action
+                      onPressed: onFavourite,
                       icon: const Icon(Icons.favorite_border_rounded),
                       iconSize: 30,
-                      color: Colors.grey.shade600,
+                      color:
+                          isFavourite ? Colors.redAccent : Colors.grey.shade600,
                       padding: EdgeInsets.zero,
                       constraints: BoxConstraints(),
                     ),

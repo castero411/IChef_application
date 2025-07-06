@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:i_chef_application/view/commonWidgets/ingredient_widget.dart';
 import 'package:i_chef_application/view/text_styles.dart';
 
 class SearchPage extends StatefulWidget {
@@ -14,25 +13,6 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   final TextEditingController _controller = TextEditingController();
   List<String> searchHistory = [];
-
-  List<Widget> ingredients = [
-    IngredientWidget(
-      itemName: 'celery',
-      itemImage: AssetImage('assets/potato.jpg'),
-    ),
-    IngredientWidget(
-      itemName: 'wood',
-      itemImage: AssetImage('assets/potato.jpg'),
-    ),
-    IngredientWidget(
-      itemName: 'fire',
-      itemImage: AssetImage('assets/potato.jpg'),
-    ),
-    IngredientWidget(
-      itemName: 'steam',
-      itemImage: AssetImage('assets/potato.jpg'),
-    ),
-  ];
 
   @override
   void initState() {
@@ -106,19 +86,7 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             Gap(15),
-            Text("Last Meals", style: black20),
-            Gap(10),
-            SizedBox(
-              height: 100,
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                scrollDirection: Axis.horizontal,
-                itemCount: ingredients.length,
-                separatorBuilder: (_, __) => const Gap(10),
-                itemBuilder: (_, i) => ingredients[i],
-              ),
-            ),
-            Gap(15),
+
             Text("History", style: black20),
             Gap(10),
             Expanded(

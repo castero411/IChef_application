@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:i_chef_application/constants/colors.dart';
 import 'package:i_chef_application/provider/user_data_provider.dart';
+import 'package:i_chef_application/view/pages/ai_chat_page/ai_chat_page.dart';
 import 'package:i_chef_application/view/pages/main_page/sub_pages/calender_page.dart';
 import 'package:i_chef_application/view/pages/main_page/sub_pages/favourite_page.dart';
-import 'package:i_chef_application/view/pages/main_page/sub_pages/generate_page.dart';
 import 'package:i_chef_application/view/pages/main_page/sub_pages/home_page.dart';
 import 'package:i_chef_application/view/pages/main_page/sub_pages/search_page.dart';
 
@@ -21,7 +21,7 @@ class _MainPageState extends ConsumerState<MainPage> {
       GlobalKey();
 
   final List<Widget> mainPages = [
-    GeneratePage(),
+    AiChatPage(),
     SearchPage(),
     HomePage(),
     FavouritePage(),
@@ -63,7 +63,7 @@ class _MainPageState extends ConsumerState<MainPage> {
         key: _bottomNavigationBarKey,
         index: _selectedIndex,
         items: const [
-          Icon(Icons.edit),
+          Icon(Icons.chat),
           Icon(Icons.search),
           Icon(Icons.home_outlined),
           Icon(Icons.favorite_outline_rounded),

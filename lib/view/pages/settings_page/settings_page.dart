@@ -28,10 +28,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 iconData: Icons.person_outline_rounded,
                 tileText: 'Account',
               ),
-              SettingsTile(
-                iconData: Icons.notifications_none_rounded,
-                tileText: 'Notifications',
-              ),
+              // SettingsTile(
+              //   iconData: Icons.notifications_none_rounded,
+              //   tileText: 'Notifications',
+              // ),
               SettingsTile(
                 iconData: Icons.logout,
                 tileText: 'Log out',
@@ -128,17 +128,20 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsTile(
                 iconData: Icons.tune_rounded,
                 tileText: 'Pereferences',
+                onTap: () {
+                  Navigator.pushNamed(context, 'setup_account');
+                },
               ),
               Gap(20),
-              Text('Feedback', style: black20),
-              SettingsTile(
-                iconData: Icons.report_gmailerrorred_rounded,
-                tileText: 'Report a bug',
-              ),
-              SettingsTile(
-                iconData: Icons.send_outlined,
-                tileText: 'send feedback',
-              ),
+              // Text('Feedback', style: black20),
+              // SettingsTile(
+              //   iconData: Icons.report_gmailerrorred_rounded,
+              //   tileText: 'Report a bug',
+              // ),
+              // SettingsTile(
+              //   iconData: Icons.send_outlined,
+              //   tileText: 'send feedback',
+              // ),
             ],
           ),
         ),

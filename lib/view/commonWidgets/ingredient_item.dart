@@ -8,19 +8,26 @@ class IngredientItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO : check on the ingredients
+    // Split just once
+    final parts = text.split(' ');
+    final firstWord = parts.first;
+    final rest = parts.skip(1).join(' ');
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
+        crossAxisAlignment:
+            CrossAxisAlignment.start, // align multi‑line correctly
         children: [
-          Text(
-            text.split(' ')[0],
-            style: TextStyle(color: color ?? Colors.black),
-          ),
+          Text(firstWord, style: TextStyle(color: color ?? Colors.black)),
           const SizedBox(width: 6),
-          Text(
-            text.split(' ').skip(1).join(' '),
-            style: const TextStyle(color: Colors.black),
+          // Expanded lets the text take remaining width and wrap
+          Expanded(
+            child: Text(
+              rest,
+              softWrap: true, // allow wrapping
+              style: const TextStyle(color: Colors.black),
+            ),
           ),
         ],
       ),

@@ -8,17 +8,19 @@ class ActionButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     required this.height,
+    this.color = mainColor,
   });
   final Function() onPressed;
   final String text;
   final double height;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: mainColor,
+        color: color,
         borderRadius: BorderRadius.circular(10),
       ),
       child: InkWell(
@@ -26,7 +28,13 @@ class ActionButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: white20.copyWith(fontWeight: FontWeight.w700),
+            style:
+                color == mainColor
+                    ? white20.copyWith(fontWeight: FontWeight.w700)
+                    : white20.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                    ),
           ),
         ),
       ),

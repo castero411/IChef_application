@@ -46,7 +46,15 @@ class _SetupAccountPageState extends ConsumerState<SetupAccountPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Setup Your Profile"),
+        title: Center(
+          child: Text(
+            "Setup Your Profile",
+            style: secondary20.copyWith(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 1,
@@ -149,14 +157,9 @@ class _SetupAccountPageState extends ConsumerState<SetupAccountPage> {
 
                         try {
                           // Save to Firestore
-                          await notifier.createUserInFirebase();
 
                           // Go to home
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            'home',
-                            (Route<dynamic> route) => false,
-                          );
+                          Navigator.pushNamed(context, 'diet');
                         } catch (e) {
                           print('Failed to save user: $e');
                           ScaffoldMessenger.of(context).showSnackBar(

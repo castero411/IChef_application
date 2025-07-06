@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:i_chef_application/view/text_styles.dart';
 
 class ItemWidget extends StatelessWidget {
-  const ItemWidget({super.key});
+  const ItemWidget({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.calories,
+    required this.onTap,
+  });
 
+  final String title;
+  final String image;
+  final String calories;
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, 'recipe');
-      },
+      onTap: onTap,
       child: Padding(
         padding: EdgeInsetsGeometry.symmetric(vertical: 10, horizontal: 15),
         child: SizedBox(
@@ -22,7 +30,7 @@ class ItemWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadiusGeometry.circular(10),
                   child: Image(
-                    image: AssetImage('assets/potato.jpg'),
+                    image: NetworkImage(image),
                     width: 150,
                     fit: BoxFit.cover,
                   ),
@@ -36,9 +44,13 @@ class ItemWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('item title', style: black20),
-                      Text('item timer'),
-                      Text('item ingredients'),
+                      Text(
+                        title,
+                        style: black20.copyWith(fontSize: 18),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
+                      Text("calories :$calories"),
                     ],
                   ),
                 ),
